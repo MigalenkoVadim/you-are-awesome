@@ -1,18 +1,45 @@
-// DO WHATEVER YOU WANT HERE
 
-const createEnumerableProperty = () => {};
-const createNotEnumerableProperty = () => {};
-const createProtoMagicObject = () => {};
-const incrementor = () => {};
+const createEnumerableProperty = (propertyName) => {
+  return propertyName;
+};
+
+const createNotEnumerableProperty = (propertyName) => {
+
+};
+
+const createProtoMagicObject = () => {
+  var obj = function(){};
+  obj.__proto__ = obj.prototype;
+  return obj;
+};
+
+var incrementorTemp = 0;
+const incrementor = () => {
+  incrementor.toString = () =>  {
+    return incrementorTemp;
+  };
+  incrementorTemp++;
+  return incrementor;
+};
+
 const asyncIncrementor = () => {};
 const createIncrementer = () => {};
 
 // return same argument not earlier than in one second, and not later, than in two
 const returnBackInSecond = () => {};
 const getDeepPropertiesCount = () => {};
-const createSerializedObject = () => {};
+
+const createSerializedObject = () => {
+   return null;
+};
 const toBuffer = () => {};
-const sortByProto = () => {};
+
+const sortByProto = (arr) => {
+  return arr.sort();
+  arr.sort(function (a, b) {
+  return a.__proto__ - b.__proto__;
+  });
+};
 
 exports.createEnumerableProperty = createEnumerableProperty;
 exports.createNotEnumerableProperty = createNotEnumerableProperty;
